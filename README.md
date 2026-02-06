@@ -12,7 +12,7 @@ Aplikacja blogowa z profilami użytkowników, systemem komentarzy, paginacją, w
 
 ### 1. Klonowanie repozytorium
 ```bash
-git clone https://github.com/Ricardosz02/Lab12ALL.git](https://github.com/Ricardosz02/Technologie-aplikacji-webowych---Projekt.git
+https://github.com/Ricardosz02/Technologie-aplikacji-webowych---Projekt.git
 cd Technologie-aplikacji-webowych---Projekt
 ```
 
