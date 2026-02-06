@@ -1,0 +1,70 @@
+{
+  "hash": "92d7f5f0",
+  "configHash": "e1ff48ff",
+  "lockfileHash": "71a9d399",
+  "browserHash": "fd5c588f",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "c883a063",
+      "needsInterop": false
+    },
+    "@angular/common/http": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "6f052a0e",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "3e573a65",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "8e2d2e48",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "ce8c74cb",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "bd511e39",
+      "needsInterop": false
+    },
+    "rxjs/operators": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
+      "file": "rxjs_operators.js",
+      "fileHash": "05d16d4b",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-REYSHFP7": {
+      "file": "chunk-REYSHFP7.js"
+    },
+    "chunk-NKTELQTY": {
+      "file": "chunk-NKTELQTY.js"
+    },
+    "chunk-EUFN4NLI": {
+      "file": "chunk-EUFN4NLI.js"
+    },
+    "chunk-WA5UKC4Q": {
+      "file": "chunk-WA5UKC4Q.js"
+    },
+    "chunk-VZG323K2": {
+      "file": "chunk-VZG323K2.js"
+    },
+    "chunk-T2UPE7AW": {
+      "file": "chunk-T2UPE7AW.js"
+    }
+  }
+}

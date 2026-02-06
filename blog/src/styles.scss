@@ -1,0 +1,117 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+  --muted-color: #6c757d;
+  --label-color: #666;
+  --input-bg: #f5f5f5;
+  --input-border: #ddd;
+  --text-muted: #999;
+}
+
+body.dark-mode {
+  --bg-color: #1a1a2e;
+  --text-color: #f0f0f0;
+  --card-bg: #16213e;
+  --border-color: #2a3b55;
+  --muted-color: #c0c0c0;
+  --label-color: #d0d0d0;
+  --input-bg: #0f1419;
+  --input-border: #2a3b55;
+  --text-muted: #a0a0a0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+
+  .card-footer {
+    border-top-color: var(--border-color);
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .card-title,
+  .card-text,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  label {
+    color: var(--text-color);
+  }
+}
+
+body.dark-mode a {
+  color: #6ea8fe;
+}
+
+body.dark-mode {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--text-color);
+  }
+
+  p,
+  span,
+  div {
+    color: var(--text-color);
+  }
+
+  label {
+    color: var(--label-color);
+  }
+
+  input,
+  textarea,
+  select {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-color: var(--input-border);
+  }
+
+  .form-control {
+    background-color: var(--input-bg) !important;
+    color: var(--text-color) !important;
+    border-color: var(--input-border) !important;
+
+    &::placeholder {
+      color: var(--muted-color) !important;
+    }
+
+    &:focus {
+      background-color: var(--input-bg) !important;
+      color: var(--text-color) !important;
+      border-color: #667eea !important;
+      box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+    }
+  }
+
+  textarea.form-control {
+    background-color: var(--input-bg) !important;
+    color: var(--text-color) !important;
+  }
+
+  .alert-warning {
+    background-color: #664d03 !important;
+    color: #ffecb5 !important;
+    border-color: #997404 !important;
+  }
+}

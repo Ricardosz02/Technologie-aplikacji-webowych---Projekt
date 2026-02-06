@@ -1,0 +1,8 @@
+<button class="btn btn-outline-secondary btn-sm" (click)="themeService.toggleTheme()">
+  <i class="fa" 
+     [ngClass]="themeService.isDarkMode ? 'fa-sun-o' : 'fa-moon-o'">
+  </i>
+  <span class="ms-2 d-none d-md-inline">
+    {{ themeService.isDarkMode ? 'Jasny' : 'Ciemny' }}
+  </span>
+</button>

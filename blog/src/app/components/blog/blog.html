@@ -1,0 +1,19 @@
+<div class="row">
+  @for (item of items$; track item._id) {
+  <div class="col-md-4 mb-3">
+    <blog-item [image]="item.image" [text]="item.text" [title]="item.title" [id]="item._id"
+      [likesCount]="item.likesCount || 0" [views]="item.views || 0">
+    </blog-item>
+  </div>
+  } @empty {
+  <div class="col-12">
+    <div class="alert alert-warning">
+      Brak wyników spełniających kryteria wyszukiwania: "{{ filterText }}"
+    </div>
+  </div>
+  }
+</div>
+
+<app-pagination [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)">
+</app-pagination>

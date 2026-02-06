@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h2>Dodaj nowy post</h2>
+  <form [formGroup]="postForm" (ngSubmit)="submit()">
+
+    <div class="mb-3">
+      <label class="form-label">Tytuł</label>
+      <input class="form-control" formControlName="title"
+        [class.is-invalid]="postForm.get('title')?.invalid && postForm.get('title')?.touched">
+
+      @if (postForm.get('title')?.invalid && postForm.get('title')?.touched) {
+      <div class="text-danger small">Tytuł wymagany (min. 3 znaki)</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Treść</label>
+      <textarea class="form-control" rows="3" formControlName="text"
+        [class.is-invalid]="postForm.get('text')?.invalid && postForm.get('text')?.touched"></textarea>
+
+      @if (postForm.get('text')?.invalid && postForm.get('text')?.touched) {
+      <div class="text-danger small">Treść wymagana (min. 10 znaków)</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">URL Obrazka</label>
+      <input class="form-control" formControlName="image">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="postForm.invalid">Opublikuj</button>
+  </form>
+</div>

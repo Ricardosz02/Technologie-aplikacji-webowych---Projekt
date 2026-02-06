@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-modern mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" [routerLink]="['/']">
+      <i class="fa fa-pencil-square-o me-2 brand-icon"></i>
+      <span class="brand-text">Blog App</span>
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarContent" style="display: flex!important;">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="fa fa-home me-1"></i>Home
+          </a>
+        </li>
+        @if (authService.isLoggedIn()) {
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/blog']" routerLinkActive="active">
+            <i class="fa fa-list me-1"></i>Blog
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/add-post']" routerLinkActive="active">
+            <i class="fa fa-plus-circle me-1"></i>Dodaj Post
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active">
+            <i class="fa fa-user me-1"></i>Profil
+          </a>
+        </li>
+        }
+      </ul>
+      <div class="d-flex gap-2 ms-auto">
+        @if (!authService.isLoggedIn()) {
+        <a class="btn btn-outline-light" [routerLink]="['/login']">
+          <i class="fa fa-sign-in me-1"></i>Login
+        </a>
+        <a class="btn btn-light" [routerLink]="['/signup']">
+          <i class="fa fa-user-plus me-1"></i>Rejestracja
+        </a>
+        } @else {
+        <button class="btn btn-outline-light" (click)="signOut()">
+          <i class="fa fa-sign-out me-1"></i>Wyloguj
+        </button>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

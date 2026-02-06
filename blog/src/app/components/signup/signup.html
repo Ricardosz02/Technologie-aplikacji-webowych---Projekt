@@ -1,0 +1,43 @@
+<section class="container mt-5">
+  <h2>Rejestracja</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="create()" autocomplete="off">
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email"
+        [class.is-invalid]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+
+      @if (signupForm.get('email')?.hasError('required') && signupForm.get('email')?.touched) {
+      <div class="text-danger small">Email jest wymagany</div>
+      }
+      @if (signupForm.get('email')?.hasError('email') && signupForm.get('email')?.touched) {
+      <div class="text-danger small">Niepoprawny format emaila</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label>Hasło</label>
+      <input type="password" class="form-control" formControlName="password"
+        [class.is-invalid]="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+
+      @if (signupForm.get('password')?.hasError('required') && signupForm.get('password')?.touched) {
+      <div class="text-danger small">Hasło jest wymagane</div>
+      }
+      @if (signupForm.get('password')?.hasError('minlength') && signupForm.get('password')?.touched) {
+      <div class="text-danger small">Hasło musi mieć min. 5 znaków</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label>Imię</label>
+      <input type="text" class="form-control" formControlName="name"
+        [class.is-invalid]="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+
+      @if (signupForm.get('name')?.invalid && signupForm.get('name')?.touched) {
+      <div class="text-danger small">Imię jest wymagane</div>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="signupForm.invalid">Zarejestruj się</button>
+  </form>
+</section>

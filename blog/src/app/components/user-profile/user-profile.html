@@ -1,0 +1,98 @@
+<div class="profile-container">
+    <div *ngIf="loading" class="loading">
+        Ładowanie profilu...
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+    </div>
+
+    <div *ngIf="!loading && user" class="profile-content">
+
+        <div class="profile-section">
+            <h1 class="profile-title">Profil Użytkownika</h1>
+
+            <div class="profile-card">
+                <div class="avatar">
+                    {{ (user.name || 'U')[0].toUpperCase() }}
+                </div>
+
+                <div *ngIf="!isEditMode" class="profile-info">
+                    <div class="info-item">
+                        <label>Nazwa użytkownika:</label>
+                        <span>{{ user.name || 'Brak nazwy' }}</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Login:</label>
+                        <span>{{ user.login }}</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Email:</label>
+                        <span>{{ user.email || 'Brak emaila' }}</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Data rejestracji:</label>
+                        <span>{{ formatDate(user.createdAt) }}</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Liczba postów:</label>
+                        <span>{{ user.postsCount || 0 }}</span>
+                    </div>
+
+                    <button class="btn-edit" (click)="toggleEditMode()">
+                        ✏️ Edytuj profil
+                    </button>
+                </div>
+
+                <div *ngIf="isEditMode" class="profile-edit">
+                    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+                        <div class="form-group">
+                            <label for="name">Nazwa użytkownika:</label>
+                            <input id="name" type="text" formControlName="name"
+                                [class.invalid]="profileForm.get('name')?.invalid && profileForm.get('name')?.touched" />
+                            <div *ngIf="profileForm.get('name')?.invalid && profileForm.get('name')?.touched"
+                                class="error">
+                                Nazwa jest wymagana
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input id="email" type="email" formControlName="email"
+                                [class.invalid]="profileForm.get('email')?.invalid && profileForm.get('email')?.touched" />
+                            <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched"
+                                class="error">
+                                <span *ngIf="profileForm.get('email')?.hasError('required')">Email jest wymagany</span>
+                                <span *ngIf="profileForm.get('email')?.hasError('email')">Nieprawidłowy format
+                                    email</span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save" [disabled]="profileForm.invalid">
+                                💾 Zapisz
+                            </button>
+                            <button type="button" class="btn-cancel" (click)="toggleEditMode()">
+                                ❌ Anuluj
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="posts-section">
+            <h2 class="posts-title">Posty użytkownika ({{ userPosts.length }})</h2>
+
+            <div *ngIf="userPosts.length === 0" class="no-posts">
+                Brak postów
+            </div>
+
+            <div class="posts-grid">
+                <blog-item *ngFor="let post of userPosts" [id]="post._id" [title]="post.title" [text]="post.text"
+                    [image]="post.image" [likesCount]="post.likesCount || 0" [views]="post.views || 0">
+                </blog-item>
+            </div>
+        </div>
+    </div>
+</div>

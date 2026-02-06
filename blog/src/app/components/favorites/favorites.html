@@ -1,0 +1,18 @@
+<h2 class="mb-4">Twoje ulubione posty</h2>
+<div class="row">
+  @for (item of favoriteItems; track item.id) {
+    <div class="col-md-4 mb-3">
+       <blog-item 
+         [image]="item.image" 
+         [text]="item.text" 
+         [id]="item.id">
+       </blog-item>
+    </div>
+  } @empty {
+    <div class="col-12">
+      <div class="alert alert-info">
+        Nie masz jeszcze żadnych ulubionych postów.
+      </div>
+    </div>
+  }
+</div>

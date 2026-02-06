@@ -1,0 +1,9 @@
+<p class="card-text">
+  {{ text | summary:30 }}
+</p>
+
+@if (id) {
+  <a [routerLink]="['/blog/detail', id]" class="btn btn-primary">
+    Więcej
+  </a>
+}
